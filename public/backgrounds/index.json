@@ -1,0 +1,176 @@
+{
+    "artists": {
+        "tyler-the-creator": {
+            "by": {
+                "url": "https://www.instagram.com/feliciathegoat/",
+                "name": "Felicia The Goat"
+            },
+            "name": "Tyler, The Creator",
+            "image": "tyler-the-creator.png"
+        },
+        "dua-lipa": {
+            "by": {
+                "url": "https://elmundo.es/",
+                "name": "EL MUNDO"
+            },
+            "name": "Dua Lipa",
+            "image": "dua-lipa.png"
+        },
+        "the-weeknd": {
+            "by": {
+                "url": "https://indiehoy.com",
+                "name": "Indie Hoy"
+            },
+            "name": "The Weeknd",
+            "image": "the-weeknd.png"
+        },
+        "jack-harlow": {
+            "by": {
+                "url": "https://cultture.com",
+                "name": "Cultture"
+            },
+            "name": "Jack Harlow",
+            "image": "jack-harlow.png"
+        },
+        "danny-ocean": {
+            "by": {
+                "url": "https://observadorlatino.com/",
+                "name": "Observador Latino"
+            },
+            "name": "Danny Ocean",
+            "image": "danny-ocean.png"
+        },
+        "bad-bunny": {
+            "by": {
+                "url": "https://www.youtube.com/channel/UCmBA_wu8xGg1OfOkfW13Q0Q",
+                "name": "Bad Bunny"
+            },
+            "name": "Bad Bunny",
+            "image": "bad-bunny.png"
+        },
+        "daniel-caesar": {
+            "by": {
+                "url": "https://www.wegow.com/es-mx/artistas/daniel-caesar",
+                "name": "wegow"
+            },
+            "name": "Daniel Caesar",
+            "image": "daniel-caesar.png"
+        },
+        "depresion-sonora": {
+            "by": {
+                "url": "https://www.facebook.com/depresion.sonora/",
+                "name": "Depresión sonora"
+            },
+            "name": "Depresión sonora",
+            "image": "depresion-sonora.png"
+        },
+        "kevin-kaarl": {
+            "by": {
+                "url": "https://mundoindie.mx/",
+                "name": "Mundo Indie"
+            },
+            "name": "Kevin Kaarl",
+            "image": "kevin-kaarl.png"
+        }
+    },
+    "random": [
+        {
+            "by": {
+                "url": "https://unsplash.com/@martzzl",
+                "name": "Marcel Strauß"
+            },
+            "image": "bg0.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@brivel_bariki",
+                "name": "Brivel Bariki"
+            },
+            "image": "bg1.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@brookecagle",
+                "name": "Brooke Cagle"
+            },
+            "image": "bg2.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@ashtonbingham",
+                "name": "Ashton Bingham"
+            },
+            "image": "bg3.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@charlesdeluvio",
+                "name": "Charles Deluvio"
+            },
+            "image": "bg4.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@kbalobanov",
+                "name": "Kirill Balobanov"
+            },
+            "image": "bg5.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@beth_tate_",
+                "name": "Beth Tate"
+            },
+            "image": "bg6.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@floriankrumm",
+                "name": "Florian Krumm"
+            },
+            "image": "bg7.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@overlyawesome",
+                "name": "Daniel Gonzalez"
+            },
+            "image": "bg8.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@cushstock",
+                "name": "Cushstock"
+            },
+            "image": "bg9.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@yogendras31",
+                "name": "Yogendra Singh"
+            },
+            "image": "bg10.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@jonzerger",
+                "name": "Jonathan Zerger"
+            },
+            "image": "bg11.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@rickmontii",
+                "name": "Rick Monteiro"
+            },
+            "image": "bg12.png"
+        },
+        {
+            "by": {
+                "url": "https://unsplash.com/@icons8",
+                "name": "Icons8 Team"
+            },
+            "image": "bg13.png"
+        }
+    ]    
+}

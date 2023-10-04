@@ -1,0 +1,59 @@
+.transition {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    z-index: 100000;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.transition_panel {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 75px;
+    height: 75px;
+    background-image: conic-gradient(transparent 0%, white 100%);
+    border-radius: 1000000000px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spinner-animation 0.75s linear infinite;
+}
+
+.spinner_child {
+    width: calc(100% - 5px);
+    height: calc(100% - 5px);
+    background-color: black;
+    position: absolute;
+    border-radius: 10000000px;
+}
+
+.offscreen {
+    position: fixed;
+    pointer-events: none;
+    z-index: -11111;
+    opacity: 0;
+}
+
+@keyframes spinner-animation {
+    from {
+        opacity: 1;
+        transform: rotate(0deg)
+    }
+    to {
+        opacity: 0.8;
+        transform: rotate(360deg)
+    }
+}

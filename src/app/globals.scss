@@ -1,0 +1,211 @@
+// Import easings
+@use 'easings.scss' as *;
+
+// Add tailwind rules
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: black;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    width: 100vw;
+    height: 100vh;
+}
+
+#__next {
+    width: inherit;
+    height: inherit;
+}
+
+* {
+    color: white;
+    -webkit-tap-highlight-color: rgba($color: #6e6e6e, $alpha: 0.25);
+}
+
+a:not(.button):not(.unstyled) {
+    font-weight: 600;
+    text-decoration: none;
+    background-image: linear-gradient(white, white);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 100% 0px;
+    color: white;
+    transition: background-size 0.5s $out-cubic, opacity 0.5s, color 0.5s, transform 0.5s $out-cubic;
+
+    &:hover:not(.selector), &.active {
+        color: black;
+        background-size: 100% 100%;
+    }
+
+    & > * {
+        color: inherit
+    }
+
+    @apply py-1;
+    @apply px-2;
+    @apply -mx-2;
+}
+
+.themed {
+    filter: saturate(0) brightness(0.33);
+}
+
+.hero {
+    width: 100vw;
+    height: 100vh;
+}
+
+.c-scrollbar_thumb {
+    background-color: white;
+}
+
+.wrapper {
+    overflow-y: hidden !important;
+    overflow-x: hidden;
+}
+
+b, strong {
+    font-weight: 600;
+}
+
+// * // STYLED ELEMENTS
+button, input[type="submit"], .button {
+    &:not(.unstyled) {
+        position: relative;
+        background-color: transparent;
+        outline: 1px solid white;
+        overflow: hidden;
+        border: none;
+        box-shadow: none;
+        border-radius: 0px;
+        padding-inline: 50px;
+        padding-block: 10px;
+        cursor: pointer;
+        box-sizing: border-box;
+        font-weight: 400;
+        transition: background-color 0.25s, color 0.25s, transform 0.25s $out-back, filter 0.25s;
+    
+        &[disabled] {
+            cursor: not-allowed;
+            filter: brightness(0.75);
+        }
+    
+        &:not([disabled]):hover, &.primary {
+            background-color: white;
+            color: black;
+            & > * {
+                color: black;
+            }
+        }
+    
+        &.primary:not([disabled]):hover {
+            transform: scale(1.05);
+        }
+    
+        &:not([disabled]):active, &.primary:not([disabled]):active {
+            transform: scale(0.95);
+        }
+    }
+}
+
+select {
+    background-color: black;
+    outline: white;
+    color: white;
+
+    &::-webkit-scrollbar {
+        width: 12px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: white;
+        border-radius: 1000px;
+        width: 4px;
+        border: 4px solid black;
+    }
+}
+
+.filter-hidden {
+    filter: opacity(0);
+}
+
+* {
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar-track {
+    background: black;
+}
+
+*[data-tooltip] {
+    position: relative;
+    &::before {
+        content: attr(data-tooltip);
+        background-color: black;
+        outline: 1px solid white;
+        color: white;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        width: fit-content;
+        margin: auto;
+        z-index: 2;
+        font-size: 1rem;
+        transition: transform 0.25s $ease-out-back, opacity 0.05s;
+        opacity: 0;
+        padding: 2px;
+    }
+
+    &:hover::before {
+        opacity: 1;
+        transform: translateY(calc(-100% + 5px));
+    }
+}
+
+::-webkit-scrollbar {
+    background-color: #fff;
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 16px;
+}
+
+::-webkit-scrollbar-button {
+    display:none;
+}
+
+p {
+    margin: 0px;
+}
+
+.unset-all {
+    all: unset;
+}
+
+.\!unset-all {
+    all: unset !important;
+}
+
+.invert-bg {
+    // background-color: black;
+    color: white;
+    backdrop-filter: invert(1);
+}
+
+* {
+    outline: 1px solid red;
+}
