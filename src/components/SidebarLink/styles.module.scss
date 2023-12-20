@@ -1,0 +1,11 @@
+.SidebarLink {
+    &:hover {
+        transform: scale(1.1);
+        color: black;
+    }
+    &:active {
+        transform: scale(0.9);
+    }
+    transform-origin: center left;
+    transition: transform 0.25s var(--out-back);
+}

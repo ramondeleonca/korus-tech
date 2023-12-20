@@ -65,7 +65,7 @@ export default function Onboarding() {
 
             <Snackbar open={snackbarOpen} onClose={() => setSnackbarOpen(false)} message={snackbarMessage}></Snackbar>
 
-            <div className="w-full h-full flex items-center justify-center flex-col">
+            <div className="hero flex items-center justify-center flex-col">
                 <div className="image-container relative w-40 h-40 aspect-square">
                     <Image alt="Korus logo" style={{objectFit: "cover"}} fill={true} src="/static/logo.png"></Image>
                 </div>
@@ -80,7 +80,7 @@ export default function Onboarding() {
                         <TextField required name="password" label="Password" variant="standard" autoComplete="password" type="password"></TextField>
                     </FormControl>
 
-                    <Link href="/onboarding" className="text-sm mb-4">Don't have an account? Sign up in here</Link>
+                    <Link href="/onboarding" className="text-sm mb-4">Don&apos;t have an account? Sign up in here</Link>
 
                     <div className="w-full flex-grow flex items-center justify-center">
                         <button type="submit" className="primary w-full">Log in</button>

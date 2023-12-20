@@ -1,19 +1,16 @@
 "use client";
 
-import AppBar from "@/components/AppBar";
+import AppBar from "@/components/AppHeader";
 import { useAppContext } from "@/components/AppContext";
-import Transition from "@/components/Transition";
-import { useRouter } from "next/navigation";
 
-export default function App() {
-    const router = useRouter();
+export default function Create() {
     const ctx = useAppContext();
-
     ctx?.preventInvalidToken();
 
     return (
         <>
             <AppBar></AppBar>
+            Create
         </>
     )
 }

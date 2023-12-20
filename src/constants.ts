@@ -1,3 +1,5 @@
+import { Users } from './xata';
+
 export default {
     minAge: 13,
     availableCountries: [

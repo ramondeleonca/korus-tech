@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import backgrounds from "@/../public/backgrounds/index.json";
 import _ from 'lodash';
 import Image from 'next/image';
@@ -11,12 +11,12 @@ type Props = {
     gradient?: boolean;
     credits?: boolean;
 }
-export default forwardRef<HTMLDivElement, Props>((props, ref) => {
+export default function Background(props: Props) {
     const [background, setBackground] = useState<{by: {url: string, name: string}, name: string, image: string}>();
     useEffect(() => setBackground(_.sample(backgrounds.artists)), []);
     
     return (
-        <div ref={ref} className={`w-1/2 right-0 top-0 h-full absolute -z-[10] ${props.className ?? ""}`}>
+        <div className={`w-1/2 right-0 top-0 h-full absolute -z-[10] ${props.className ?? ""}`}>
             {
                 props.gradient ? <div className="gradient from-black to-transparent bg-gradient-to-r -z-[1] absolute w-full h-full"></div> : null
             }
@@ -33,4 +33,6 @@ export default forwardRef<HTMLDivElement, Props>((props, ref) => {
             {props.children}
         </div>
     )
-})
+};
+
+Background.displayName = "Background";

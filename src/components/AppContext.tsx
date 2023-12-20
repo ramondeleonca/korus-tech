@@ -13,6 +13,7 @@ export type AppContextType = {
     updateUserData: () => void;
     preventInvalidToken: () => void;
     logOut: () => void;
+    loggedIn: boolean;
 }
 const AppContext = createContext<AppContextType | null>(null);
 
@@ -23,22 +24,30 @@ export default function AppContextProvider(props: Props) {
     const router = useRouter();
     const [token, setToken, removeToken] = useLocalStorage<string>("token");
     const [userDataCache, setUserDataCache, removeUserDataCache] = useLocalStorage<AppContextType["userData"]>("userDataCache");
+    const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
     const [userData, setUserData] = useState<AppContextType["userData"]>();
     useEffect(() => {if (userDataCache) setUserData(userDataCache)}, [userDataCache]);
     const updateUserData = async () => {
+        setLoggedIn(!!token);
         if (token) {
             const result = await getMe(token);
             if (result.success) {
                 setUserData(result);
                 setUserDataCache(result);
+                setLoggedIn(true);
+            } else {
+                setLoggedIn(false);
             };
         }
     }
     useEffect(() => {updateUserData()}, [token]);
 
     const preventInvalidToken = async () => {
-        if (!token || !(await verifyToken(token)).success) router.push("/login");
+        if (!token || !(await verifyToken(token)).success) {
+            setLoggedIn(false);
+            router.push("/login");
+        }
     }
 
     const logOut = () => {
@@ -56,7 +65,8 @@ export default function AppContextProvider(props: Props) {
             userData,
             updateUserData,
             preventInvalidToken,
-            logOut
+            logOut,
+            loggedIn
         }}>
             {props.children}
         </AppContext.Provider>

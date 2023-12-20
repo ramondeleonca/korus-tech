@@ -93,7 +93,7 @@ export default function Onboarding() {
 
             <Snackbar open={snackbarOpen} onClose={() => setSnackbarOpen(false)} message={snackbarMessage}></Snackbar>
 
-            <div className="w-full h-full flex items-center justify-center flex-col">
+            <div className="hero flex items-center justify-center flex-col">
                 <div className="image-container relative w-40 h-40 aspect-square">
                     <Image alt="Korus logo" style={{objectFit: "cover"}} fill={true} src="/static/logo.png"></Image>
                 </div>

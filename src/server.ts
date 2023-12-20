@@ -1,9 +1,10 @@
 "use server";
 
-import { Users, UsersRecord, getXataClient } from "./xata";
+import { DatabaseSchema, Songs, Users, UsersRecord, getXataClient } from "./xata";
 import argon2 from "argon2";
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { user as userSchema } from "./schema";
+import { user, user as userSchema } from "./schema";
+import { includeKeys } from "filter-obj";
 import rules from "./rules";
 import HashIds from "hashids";
 
@@ -106,3 +107,47 @@ export const verifyToken = async (token: string) => {
     if (!decoded) return { success: false, message: "Invalid token" };
     return { success: true };
 }
+
+export const getPublicUserFields = (user: Users | Record<string, any>) => <const>["birthdate", "country", "id", "name", "pfp", "username"];
+export const getPublicSongFields = (song: Songs | Record<string, any>) => <const>["id"];
+
+export type SearchOptions = {
+    query: string;
+    pageOffset?: number;
+    pageSize?: number;
+    tables?: keyof DatabaseSchema[];
+    fuzziness?: number;
+    highlight?: boolean;
+}
+export const search = async (options: SearchOptions) => {
+    const usersSearch = await xata.db.users.search(options.query, {
+        fuzziness: options.fuzziness ?? 2,
+        highlight: { enabled: options.highlight ?? true, encodeHTML: options.highlight ?? true },
+        page: { size: options.pageSize ?? 5, offset: options.pageOffset ?? 0 },
+        prefix: "phrase",
+        target: [{column: "birthdate", weight: 2}, {column: "name", weight: 2}, {column: "username", weight: 2}]
+    });
+
+    const songsSearch = await xata.db.songs.search(options.query, {
+        fuzziness: options.fuzziness ?? 2,
+        highlight: { enabled: options.highlight ?? true, encodeHTML: options.highlight ?? true },
+        page: { size: options.pageSize ?? 5, offset: options.pageOffset ?? 0 },
+        prefix: "phrase",
+        target: []
+    });
+
+    const users: Pick<Users, ReturnType<typeof getPublicUserFields>[number]>[] = [];
+    const songs: Pick<Users, ReturnType<typeof getPublicSongFields>[number]>[] = [];
+
+    for (const user of usersSearch) {
+        users.push(includeKeys({...user, pfp: await user.pfp?.read()}, getPublicUserFields(user)));
+    }
+
+    for (const song of songsSearch) {
+        songs.push(includeKeys(song, getPublicSongFields(song)));
+    }
+
+    return { users, songs }
+}
+
+export const isDev = async () => process.env.NODE_ENV === "development";

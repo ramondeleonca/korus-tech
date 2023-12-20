@@ -7,6 +7,15 @@ const nextConfig = {
     i18n: {
         locales: ["en-us"],
         defaultLocale: "en-us",
+    },
+    images: {
+        remotePatterns: [
+            {
+                hostname: "*.storage.xata.sh",
+                protocol: "https",
+            }
+        ],
+        domains: ["*.storage.xata.sh"]
     }
 }
 

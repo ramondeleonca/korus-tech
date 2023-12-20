@@ -2,7 +2,6 @@
 import AppContextProvider from '@/components/AppContext';
 import './globals.scss';
 import "./theme.scss";
-import "locomotive-scroll/dist/locomotive-scroll.min.css"
 
 // Font Imports
 import { Montserrat } from "next/font/google";
